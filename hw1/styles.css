@@ -1,0 +1,9 @@
+body {
+    background-color: #3460FF; /* Change the background color of the entire page */
+}
+.box-section {
+    background-color: #f8f9fa; /* Set background color */
+    border: 2px solid #343a40; /* Set border color */
+    //border-radius: 15px; /* Set border radius */
+    padding: 25px; /* Set padding */
+}
