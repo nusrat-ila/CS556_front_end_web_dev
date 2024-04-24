@@ -1,21 +1,48 @@
-// Add your code here
-function showUserInput() {
-    // Retrieve form values
-    var fullName = document.getElementById('fullName').value;
-    var email = document.getElementById('email').value;
-    // Add more variables to capture other form values (dropdowns, checkboxes, etc.)
+var fullname = document.getElementById('fullName');
+var email = document.getElementById('email');
+var txtarea = document.getElementById('txtarea');
+var courses = document.getElementsByName('programmingLanguages');
+var registrationStatus = document.getElementById('registrationStatus');
 
-    // Construct the user input details to display in the modal
-    var userInputDetails = `
-        <p><strong>Full Name:</strong> ${fullName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <!-- Add more details for other form fields as needed -->
-    `;
+function submitFunction(){
+	const name = document.getElementById('name');
+	name.innerHTML = fullname.value;
+	const em = document.getElementById('em');
+	em.textContent = email.value;
+	const regstat = document.getElementById('reg_stat');
+	regstat.innerHTML = registrationStatus.value;
+	const courses_modal = document.getElementById('courses');
+	courses_modal.innerHTML = "";
+	
+	//courses_modal.append('<b>Courses Taken </b><br>');
+	for (let i = 0; i < courses.length; i++) {
+		const c = courses[i];
+		if (c.checked)
+		{
+			const item = document.createElement("li");
+			item.textContent= c.value;
+			courses_modal.appendChild(item);
 
-    // Display user input details in the modal body
-    var modalBody = document.getElementById('userInputDetails');
-    modalBody.innerHTML = userInputDetails;
+		}
+		
+	}
+	const any_else = document.getElementById('any_else');
+	any_else.innerHTML = txtarea.value;
+    let modal = new bootstrap.Modal(document.getElementById('usrmodal')); 
+    modal.show(); 	
+}
 
-    // Show the modal
-    $('#myModal').modal('show');
+function resetFunction(){
+    fullname.innerHTML = "";
+	email.innerHTML = "";
+	txtarea.innerHTML = "";
+	for (let i = 0; i < courses.length; i++) {
+		var c = courses[i];
+		if (c.checked)
+		{
+			c.checked=false;
+		}
+		
+	}
+	
 }
