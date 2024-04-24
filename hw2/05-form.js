@@ -1,8 +1,8 @@
-var fullname = document.getElementById('fullName');
-var email = document.getElementById('email');
-var txtarea = document.getElementById('txtarea');
-var courses = document.getElementsByName('programmingLanguages');
-var registrationStatus = document.getElementById('registrationStatus');
+const fullname = document.getElementById('fullName');
+const email = document.getElementById('email');
+const txtarea = document.getElementById('txtarea');
+const courses = document.getElementsByName('programmingLanguages');
+const registrationStatus = document.getElementById('registrationStatus');
 
 function submitFunction(){
 	const name = document.getElementById('name');
@@ -37,7 +37,7 @@ function resetFunction(){
 	email.innerHTML = "";
 	txtarea.innerHTML = "";
 	for (let i = 0; i < courses.length; i++) {
-		var c = courses[i];
+		const c = courses[i];
 		if (c.checked)
 		{
 			c.checked=false;

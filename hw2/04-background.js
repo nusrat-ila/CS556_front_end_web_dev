@@ -1,35 +1,35 @@
 // Add your code here
-var intervalId;
+let intervalId;
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 function getRandomColor(){
-	var r = getRandomInt(256);
-	var g = getRandomInt(256);
-	var b = getRandomInt(256);
-	var alpha = 0.7;
+	const r = getRandomInt(256);
+	const g = getRandomInt(256);
+	const b = getRandomInt(256);
+	const alpha = 0.7;
 	return rgb(r,g,b,alpha);
 }
 
 function changeColor() {
-	var body = document.body;
-	var r = getRandomInt(256);
-	var g = getRandomInt(256);
-	var b = getRandomInt(256);
-	var alpha = 0.3;
-	var rgbColor = 'rgb(' + r + ',' + g + ',' + b + ','+alpha+')';
+	const body = document.body;
+	const r = getRandomInt(256);
+	const g = getRandomInt(256);
+	const b = getRandomInt(256);
+	const alpha = 0.3;
+	const rgbColor = 'rgb(' + r + ',' + g + ',' + b + ','+alpha+')';
 	body.style.backgroundColor = rgbColor;
 }
 
 
-var start_stop_button = document.getElementById("start-stop")
+const start_stop_button = document.getElementById("start-stop")
 start_stop_button.addEventListener("click", function(){
 	console.log(start_stop_button.value);
 	
 	if(start_stop_button.value =="Start")
 	{
 
-		var num = parseInt(document.getElementById("num").value);
+		const num = parseInt(document.getElementById("num").value);
 		if (num>0)
 		{
 			intervalId = setInterval(changeColor, num*1000);
