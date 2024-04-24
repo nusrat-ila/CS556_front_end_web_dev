@@ -9,12 +9,80 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
     <script defer src="05-form.js"></script>
+	<style>
+        
+        body {
+
+            display: block;
+            justify-content: center;
+            align-items: center;
+			background-color: black;
+			padding: 20px;
+			margin: 20%;
+			margin-top:5%;
+			
+        }
+		.btn-width{
+			width: 49%;
+		}
+
+        .center-box {
+            background-color: #F5F9FD;
+            padding: 20px; /* Adjust padding as needed */
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+		form .font-weight-bold {font-weight:bold};
+		
+
+
+
+    </style>
   </head>
   <body>
     <main>
+	<div class="container center-box ">
       <form>
-        <h1>Exercise 05 - Form</h1>
+	  <div class="form-group">
+        <h1 class="text-center" >Exercise 05 - Form</h1>
+		 <!-- Full Name -->
+        <label class="font-weight-bold" for="fullName">Full Name:</label><br>
+        <input class="form-control" type="text" id="fullName" name="fullName" required><br><br>
+
+        <!-- Email -->
+        <label class="font-weight-bold" for="email">Email:</label><br>
+        <input class="form-control" type="email" id="email" name="email" required><br><br>
+
+        <!-- Registration Status (Dropdown) -->
+        <label class="font-weight-bold" for="registrationStatus">Registration Status:</label><br>
+        <select class="form-control" id="registrationStatus" name="registrationStatus" required>
+            <option value="" disabled selected>Choose an option</option>
+            <option value="Registered">Registered</option>
+            <option value="Pending">Pending</option>
+            <option value="Cancelled">Cancelled</option>
+        </select><br><br>
+
+        <!-- Programming Languages (Checkboxes) -->
+        <label class="font-weight-bold">Have you taken any of the following courses?</label><br>
+        <input type="checkbox" id="programmingLanguages1" name="programmingLanguages" value="Programming Languages">
+        <label for="programmingLanguages1">Programming Languages</label><br>
+        <input type="checkbox" id="programmingLanguages2" name="programmingLanguages" value="Operating Systems">
+        <label for="programmingLanguages2">Operating Systems</label><br>
+        <input type="checkbox" id="programmingLanguages3" name="programmingLanguages" value="Full Stack Web Development">
+        <label for="programmingLanguages3">Full Stack Web Development</label><br><br>
+
+        <!-- Anything Else? (Text Box) -->
+        <label class="font-weight-bold" for="additionalComments">Anything Else?</label><br>
+        <textarea class="form-control" id="fullWidthInput" name="additionalComments" rows="4" cols="40"></textarea><br><br>
+
+        <!-- Submit Button -->
+		<div class="d-flex justify-content-between">
+        <input type="submit" class="btn btn-primary btn-width" value="Submit">
+		<input type="reset" class="btn btn-secondary btn-width"  value="Reset">
+		</div>
+		</div>
       </form>
+	  </div>
     </main>
   </body>
 </html>
