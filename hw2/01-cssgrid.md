@@ -1,7 +1,92 @@
 ## Exercise 02 - CSS Grid
 
-1. grid-column-start: 3;
-2. grid-column-start: 5;
-3.
-4.
-5. ...
+1. 
+grid-column-start: 3;
+
+2. 
+grid-column-start: 5;
+
+3. 
+grid-column-end:4;
+
+4. 
+grid-column-end:2;
+
+5. 
+grid-column-end:5;
+
+6. 
+grid-column-start:-3;
+
+7. 
+grid-column-end:4;
+
+8. 
+grid-column-end:-1;
+
+9. 
+grid-column-start:3;
+
+10.
+grid-column-start:4; 
+grid-column-end:6;
+
+11..
+grid-column-start:2;
+grid-column-end:5;
+
+12.
+grid-row-start:3;
+
+13.
+grid-row-start:3;
+grid-row-end:6;
+
+14.
+grid-row-start:5;
+grid-column-start:2;
+
+15.
+grid-row-start:1;
+grid-column-start:2;
+grid-row-end:6;
+grid-column-end:6;
+
+16.
+grid-area:1/2/4/6;
+
+17.
+grid-area:2/3/5/6;
+
+18.
+order:1
+
+19.:
+order:-1;
+
+20.
+grid-template-columns:50%;
+
+21.
+grid-template-columns:repeat(8,12.5%);
+
+22.
+grid-template-columns:100px 3em 40%;
+
+23.
+grid-template-columns: 1fr 5fr;
+
+24.
+grid-template-columns: 50px 1fr 1fr 1fr 50px;
+
+25.
+grid-template-columns: 75px 3fr 2fr;
+
+26.
+grid-template-rows: 50px 0fr 0fr 0fr 1fr;
+
+27.
+grid-template:60%/200px;
+
+28.
+grid-template: 1fr 50px/20% 80%;
