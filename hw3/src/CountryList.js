@@ -1,38 +1,39 @@
-// CountryList.js
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import styles from './CountryList.module.css';
 
-function CountryList() {
-  const [countries, setCountries] = useState([]);
+const CountryList = () => {
+    const [countries, setCountries] = useState([]);
+    const [error, setError] = useState(null);
 
-  useEffect(() => {
-    // Fetch data from API
-    const fetchCountries = async () => {
-      try {
-        const response = await fetch('https://restcountries.com/v3.1/region/South%20America');
-        const data = await response.json();
-        setCountries(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    useEffect(() => {
+        axios.get('https://cs464p564-frontend-api.vercel.app/api/countries')
+            .then(response => {
+                setCountries(response.data);
+            })
+            .catch(error => {
+                setError('Error fetching country data.');
+            });
+    }, []);
 
-    fetchCountries();
-  }, []);
+    if (error) {
+        return <div>{error}</div>;
+    }
 
-  return (
-    <div>
-      <h2>South American Countries</h2>
-      <ul>
-        {countries.map(country => (
-          <li key={country.name.common}>
-            <img src={country.flags.svg} alt={country.name.common} width="30" height="20" />
-            {country.name.common}
-            <p>Capital: {country.capital}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+    return (
+        <div className={styles.countryListContainer}>
+            <h1>Countries of South America</h1>
+            <ul className={styles.countryList}>
+                {countries.map((country, index) => (
+                    <li key={index} className={styles.countryItem}>
+                        <h2>{country.name || 'No name available'}</h2>
+                        <img src={country.flag_png} alt={`Flag of ${country.name}`}  style={{ width: '100px', height: '60px', border: '1px solid #ccc' }} />
+                        <p>Population: {country.population || 'No population data available'}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
 
 export default CountryList;

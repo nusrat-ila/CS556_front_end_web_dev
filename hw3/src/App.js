@@ -1,34 +1,28 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Navbar from './Navbar';
 import Home from './Home';
 import CountryList from './CountryList';
-
-export default function App() {
-  return 
-     (
-      
-      <Router>
-        <div>
-          {/* Navbar */}
-          <nav>
-            <ul>
-              <li>
-                <Link to="/home">Home</Link>
-              </li>
-              <li>
-                <Link to="/list">Country List</Link>
-              </li>
-            </ul>
-          </nav>
-  
-          {/* Route definitions */}
-          <Router>
+import PopulationChart from './PopulationChart';
+import GDPChart from './GDPChart';
+import Footer from './Footer';
+const App = () => {
+    return (
+        <Router>
+             <div style={{ minHeight: '100vh', position: 'relative', paddingBottom: '60px' }}>
+                
+                
+            <Navbar />
             <Routes>
-              <Route path="/home" element={<Home />} />
-              <Route path="/list" element={<CountryList />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/list" element={<CountryList />} />
+                <Route path="/population" element={<PopulationChart />} />
+                <Route path="/gdp" element={<GDPChart />} />
             </Routes>
-          </Router>
-        </div>
-      </Router>
+            <Footer />
+            </div>
+        </Router>
     );
-}
+};
+
+export default App;
